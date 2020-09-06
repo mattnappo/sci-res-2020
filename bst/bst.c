@@ -77,6 +77,7 @@ static struct node *get_(struct node *node, DTYPE target)
         }
     }
 
+    printf("REACHED THIS?!?!\n\n");
     return NULL; // Unreachable
 }
 
@@ -91,5 +92,35 @@ struct node *get(struct tree *tree, DTYPE target)
 
 void delete(struct tree *tree, DTYPE data);
 
-int balanced(struct tree *tree); // 0 if balanced, 1 if not
+static int balanced_(struct node *node)
+{
+    if (node->left != NULL) {
+        if (node->left->data < node->data) {
+            return balanced_(node->left);// good
+        } else {
+            return 1; // bad
+        }
+    }
+
+    if (node->right != NULL) {
+        if (node->right->data > node->data) {
+            return balanced_(node->right);
+        } else {
+            return 1;
+        }
+    }
+
+    printf("REACHED THIS (in balanced)\n\n");
+    return 0; // Unreachable
+}
+
+
+int balanced(struct tree *tree)
+{
+    if (tree->head == NULL) {
+        return 1;
+    }
+
+    return balanced_(tree->head);
+}
 

@@ -6,6 +6,7 @@ int test()
     insert(tree, 10);
     insert(tree, 8);
     insert(tree, 15);
+    insert(tree, 15);
     insert(tree, 16);
     insert(tree, 16);
     insert(tree, 14);
@@ -22,10 +23,13 @@ int test()
             head->right->right->data
     );
     printf("                       %d\n", head->right->right->right->data);
+    printf("                          %d\n", head->right->right->right->right->data);
     
     struct node *got = get(tree, 15);
     printf("  %d   \n", got->data);
     printf("%d  %d \n", got->left->data, got->right->data);
+
+    assert(balanced(tree) == 0);
 
     free_tree(tree);
     
