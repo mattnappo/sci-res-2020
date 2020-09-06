@@ -1,5 +1,5 @@
 CC = gcc
-FLAGS = -Wall # -g
+FLAGS = -Wall -g
 BIN = bin
 
 $(ALG).out: $(ALG)/test.c $(ALG)/$(ALG).c
