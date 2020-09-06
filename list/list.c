@@ -2,24 +2,7 @@
 /// framework to test all of them on all sets of inputs
 /// and measure the time it took to run them. Then graph and
 /// compare for common methods link store, get, search, etc.
-
-#include <stdio.h>
-#include <assert.h>
-#include <stdlib.h>
-#include <string.h>
-
-#define SIZE 32
-// #define GUARD (i) (if (i < list->length) {  }
-
-struct node {
-    struct node *next;
-    char value[SIZE];
-};
-
-struct list {
-    struct node *head;
-    uint32_t length; // Just for convenience
-};
+#include "list.h"
 
 struct list *new_list(char root_val[])
 {
@@ -128,37 +111,3 @@ void delete_value(struct list *list, char target[])
     uint32_t index = search(list, target);
     delete_index(list, index);
 }
-
-int test()
-{
-    struct list *list = new_list("zero");
-
-    insert(list, "one");
-    insert(list, "two");
-    insert(list, "three");
-    insert(list, "four");
-    insert(list, "five");
-    print_list(list);
-
-    // Test search
-    assert(search(list, "two") == 2);
-    assert(search(list, "five") == 5);
-
-    // Test getj
-    assert(strcmp(get(list, 3), "three") == 0);
-    assert(strcmp(get(list, 5), "five") == 0);
-    
-    // Test delete
-    delete_index(list, 5);
-    delete_index(list, 3);
-    assert(strcmp(get(list, 0), "zero") == 0);
-    assert(strcmp(get(list, 1), "one")  == 0);
-    assert(strcmp(get(list, 2), "two")  == 0);
-    assert(strcmp(get(list, 3), "four") == 0);
-
-    free_list(list);
-
-    return 0;
-}
-
-int main() { return test(); }
