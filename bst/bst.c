@@ -97,9 +97,8 @@ struct node *minimum_(struct node *node)
 {
     if (node->left == NULL) {
         return node;
-    } else {
-        minimum_(node->left);
     }
+    return minimum_(node->left);
 }
 
 struct node *minimum(struct tree *tree)
@@ -114,9 +113,8 @@ static struct node *maximum_(struct node *node)
 {
     if (node->right == NULL) {
         return node;
-    } else {
-        maximum_(node->right);
     }
+    return maximum_(node->right);
 }
 
 struct node *maximum(struct tree *tree)

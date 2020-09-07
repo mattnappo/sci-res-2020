@@ -29,6 +29,10 @@ int test()
     printf("  %d   \n", got->data);
     printf("%d  %d \n", got->left->data, got->right->data);
 
+
+    printf("min: %d\n", minimum(tree)->data);
+    printf("max: %d\n", maximum(tree)->data);
+
     free_tree(tree);
     
     return 0;
