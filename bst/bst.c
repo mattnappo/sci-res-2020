@@ -11,12 +11,23 @@ struct node *init_node(DTYPE data)
 
 struct tree *init_tree()
 {
-    return malloc(sizeof(struct tree));
+    struct tree *tree = malloc(sizeof(struct tree));
+    tree->head = NULL;
+    return tree;
+}
+
+static void free_tree_(struct node *node)
+{
+    if (node != NULL) {
+        free_tree_(node->left);
+        free_tree_(node->right);
+        free(node);
+    }
 }
 
 void free_tree(struct tree *tree)
 {
-    // TODO: Finish this
+    free_tree_(tree->head);
     free(tree);
 }
 
@@ -83,45 +94,38 @@ static struct node *search_(struct node *node, DTYPE target)
 
 struct node *search(struct tree *tree, DTYPE target)
 {
-    if (tree->head == NULL) {
+    if (tree->head == NULL)
         return NULL;
-    }
-
     return search_(tree->head, target);
 }
 
 void delete(struct tree *tree, DTYPE data);
 
-
 struct node *minimum_(struct node *node)
 {
-    if (node->left == NULL) {
+    if (node->left == NULL)
         return node;
-    }
     return minimum_(node->left);
 }
 
 struct node *minimum(struct tree *tree)
 {
-    if (tree->head == NULL) {
+    if (tree->head == NULL)
         return NULL;
-    }
     return minimum_(tree->head);
 }
 
 static struct node *maximum_(struct node *node)
 {
-    if (node->right == NULL) {
+    if (node->right == NULL)
         return node;
-    }
     return maximum_(node->right);
 }
 
 struct node *maximum(struct tree *tree)
 {
-    if (tree->head == NULL) {
+    if (tree->head == NULL)
         return NULL;
-    }
     return maximum_(tree->head);
 }
 

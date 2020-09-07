@@ -12,6 +12,7 @@ int test()
     insert(tree, 14);
     insert(tree, 9);
     insert(tree, 5);
+    insert(tree, 1);
 
     struct node *head = tree->head;
     printf("         %d            \n", head->data);

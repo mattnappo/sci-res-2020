@@ -28,6 +28,7 @@ void free_list(struct list *list)
         list->head = list->head->next;
         free(old_head);
     }
+    free(list);
 }
 
 void print_list(struct list *list)
