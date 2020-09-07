@@ -53,7 +53,7 @@ void insert(struct tree *tree, DTYPE data)
     insert_(tree->head, data);
 }
 
-static struct node *get_(struct node *node, DTYPE target)
+static struct node *search_(struct node *node, DTYPE target)
 {
     if (node->data == target) {
         return node;
@@ -61,7 +61,7 @@ static struct node *get_(struct node *node, DTYPE target)
 
     else if (target < node->data) {
         if (node->left != NULL) {
-            return get_(node->left, target);
+            return search_(node->left, target);
         } else {
             printf("%d not in tree\n", target);
             return NULL;
@@ -70,7 +70,7 @@ static struct node *get_(struct node *node, DTYPE target)
 
     else if (target > node->data) {
         if (node->right != NULL) {
-            return get_(node->right, target);
+            return search_(node->right, target);
         } else {
             printf("%d not in tree\n", target);
             return NULL;
@@ -81,46 +81,49 @@ static struct node *get_(struct node *node, DTYPE target)
     return NULL; // Unreachable
 }
 
-struct node *get(struct tree *tree, DTYPE target)
+struct node *search(struct tree *tree, DTYPE target)
 {
     if (tree->head == NULL) {
         return NULL;
     }
 
-    return get_(tree->head, target);
+    return search_(tree->head, target);
 }
 
 void delete(struct tree *tree, DTYPE data);
 
-static int balanced_(struct node *node)
+
+struct node *minimum_(struct node *node)
 {
-    if (node->left != NULL) {
-        if (node->left->data < node->data) {
-            return balanced_(node->left);// good
-        } else {
-            return 1; // bad
-        }
+    if (node->left == NULL) {
+        return node;
+    } else {
+        minimum_(node->left);
     }
-
-    if (node->right != NULL) {
-        if (node->right->data > node->data) {
-            return balanced_(node->right);
-        } else {
-            return 1;
-        }
-    }
-
-    printf("REACHED THIS (in balanced)\n\n");
-    return 0; // Unreachable
 }
 
-
-int balanced(struct tree *tree)
+struct node *minimum(struct tree *tree)
 {
     if (tree->head == NULL) {
-        return 1;
+        return NULL;
     }
+    return minimum_(tree->head);
+}
 
-    return balanced_(tree->head);
+static struct node *maximum_(struct node *node)
+{
+    if (node->right == NULL) {
+        return node;
+    } else {
+        maximum_(node->right);
+    }
+}
+
+struct node *maximum(struct tree *tree)
+{
+    if (tree->head == NULL) {
+        return NULL;
+    }
+    return maximum_(tree->head);
 }
 

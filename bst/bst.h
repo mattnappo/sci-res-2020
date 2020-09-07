@@ -22,11 +22,13 @@ struct node *init_node(DTYPE data);
 void free_tree(struct tree *tree);
 void print_tree(struct tree *tree);
 void insert(struct tree *tree, DTYPE data);
-struct node *get(struct tree *tree, DTYPE target);
+struct node *search(struct tree *tree, DTYPE target);
 void delete(struct tree *tree, DTYPE data);
 
+struct node *minimum(struct tree *tree);
+struct node *maximum(struct tree *tree);
+
 // Extras
-int balanced(struct tree *tree); // 0 if balanced, 1 if not
 int64_t sum(struct tree *tree);
 
 #endif
