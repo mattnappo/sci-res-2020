@@ -12,7 +12,6 @@ int test()
     insert(tree, 14);
     insert(tree, 9);
     insert(tree, 5);
-    insert(tree, 1);
 
     struct node *head = tree->head;
     printf("         %d            \n", head->data);
@@ -30,9 +29,10 @@ int test()
     printf("  %d   \n", got->data);
     printf("%d  %d \n", got->left->data, got->right->data);
 
-
     printf("min: %d\n", minimum(tree)->data);
     printf("max: %d\n", maximum(tree)->data);
+
+    in_order(tree);
 
     free_tree(tree);
     

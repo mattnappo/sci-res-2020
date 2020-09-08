@@ -24,11 +24,9 @@ void print_tree(struct tree *tree);
 void insert(struct tree *tree, DTYPE data);
 struct node *search(struct tree *tree, DTYPE target);
 void delete(struct tree *tree, DTYPE data);
-
 struct node *minimum(struct tree *tree);
 struct node *maximum(struct tree *tree);
-
-// Extras
+void in_order(struct tree *tree);
 int64_t sum(struct tree *tree);
 
 #endif

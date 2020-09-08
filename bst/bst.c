@@ -88,7 +88,6 @@ static struct node *search_(struct node *node, DTYPE target)
         }
     }
 
-    printf("REACHED THIS?!?!\n\n");
     return NULL; // Unreachable
 }
 
@@ -100,6 +99,21 @@ struct node *search(struct tree *tree, DTYPE target)
 }
 
 void delete(struct tree *tree, DTYPE data);
+
+void in_order_(struct node *node)
+{
+    if (node == NULL)
+        return;
+
+    in_order_(node->left);
+    printf("%d ", node->data);
+    in_order_(node->right);
+}
+
+void in_order(struct tree *tree)
+{
+    in_order_(tree->head);
+}
 
 struct node *minimum_(struct node *node)
 {
