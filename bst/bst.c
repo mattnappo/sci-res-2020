@@ -98,7 +98,35 @@ struct node *search(struct tree *tree, DTYPE target)
     return search_(tree->head, target);
 }
 
-void delete(struct tree *tree, DTYPE data);
+static void delete_(struct node *node, DTYPE data)
+{
+
+}
+
+void delete(struct tree *tree, DTYPE data)
+{
+    if (tree->head == NULL) {
+        printf("item not in tree\n");
+        return;
+    }
+
+    delete_(tree->head, data);
+}
+
+void in_order_s_(struct node *node)
+{
+    if (node == NULL)
+        return;
+
+    in_order_s_(node->left);
+    in_order_s_(node->right);
+}
+
+// silent in order
+void in_order_s(struct tree *tree)
+{
+    in_order_s_(tree->head);
+}
 
 void in_order_(struct node *node)
 {

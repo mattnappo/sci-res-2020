@@ -1,4 +1,4 @@
-#include "alg.h"
+#include "iter_bst.h"
 #include "../testlib.h"
 
 int test()

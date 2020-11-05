@@ -1,6 +1,8 @@
 #include "bst.h"
 
-int test()
+#include "../testlib.h"
+
+int manual()
 {
     struct tree *tree = init_tree();
     insert(tree, 10);
@@ -36,7 +38,27 @@ int test()
 
     free_tree(tree);
     
+    return 0;}
+
+int test()
+{
+    srand(time(NULL));
+    struct tree *tree = init_tree();
+    long int ct = 10000000;
+    for (int i = 0; i < ct; i++) {
+        int r = rand();
+        insert(tree, r);
+    }
+
+    in_order(tree);
+
+    free_tree(tree);
     return 0;
 }
 
-int main() { return test(); }
+
+int main() {
+    double t = test_time(test);
+    printf("time: %f\n", t);
+    return 0;
+}

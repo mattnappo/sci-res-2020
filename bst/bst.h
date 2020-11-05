@@ -27,6 +27,7 @@ void delete(struct tree *tree, DTYPE data);
 struct node *minimum(struct tree *tree);
 struct node *maximum(struct tree *tree);
 void in_order(struct tree *tree);
+void in_order_s(struct tree *tree); // Silent
 int64_t sum(struct tree *tree);
 
 #endif
