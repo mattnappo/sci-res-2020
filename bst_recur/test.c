@@ -1,4 +1,4 @@
-#include "bst.h"
+#include "bst_recur.h"
 
 #include "../testlib.h"
 
@@ -50,7 +50,7 @@ int test()
         insert(tree, r);
     }
 
-    in_order(tree);
+    in_order_s(tree);
 
     free_tree(tree);
     return 0;

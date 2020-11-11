@@ -1,4 +1,4 @@
-#include "bst.h"
+#include "bst_recur.h"
 
 struct node *init_node(DTYPE data)
 {
