@@ -13,6 +13,7 @@ struct tree *init_tree()
 {
     struct tree *tree = malloc(sizeof(struct tree));
     tree->head = NULL;
+    tree->nodes = 1;
     return tree;
 }
 
@@ -59,33 +60,7 @@ void insert(struct tree *tree, DTYPE data)
         trail->right = init_node(data);
     }
 
-}
-
-static struct node *search_(struct node *node, DTYPE target)
-{
-    if (node->data == target) {
-        return node;
-    }
-
-    else if (target < node->data) {
-        if (node->left != NULL) {
-            return search_(node->left, target);
-        } else {
-            printf("%d not in tree\n", target);
-            return NULL;
-        }
-    }
-
-    else if (target > node->data) {
-        if (node->right != NULL) {
-            return search_(node->right, target);
-        } else {
-            printf("%d not in tree\n", target);
-            return NULL;
-        }
-    }
-
-    return NULL; // Unreachable
+    ++tree->nodes;
 }
 
 struct node *search(struct tree *tree, DTYPE target)
@@ -109,12 +84,21 @@ struct node *search(struct tree *tree, DTYPE target)
 void in_order(struct tree *tree)
 {
     struct node *temp = tree->head;
+    struct stack *stack = init_stack(tree->nodes);
 
-    while (temp != NULL) {
+    while (temp != NULL && is_empty(stack) == 0) {
+        printf("hello world\n");
         while (temp != NULL) {
-            printf("%d ", temp->data);
+            push(stack, temp);
             temp = temp->left;
         }
+
+        temp = peek(stack);
+        pop(stack);
+
+        printf("%d ", temp->data);
+
+        temp = temp->right;
 
     }
 }

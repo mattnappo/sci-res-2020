@@ -15,6 +15,7 @@ struct node {
 
 struct tree {
     struct node *head;
+    int nodes; // The number of nodes
 };
 
 struct tree *init_tree();
