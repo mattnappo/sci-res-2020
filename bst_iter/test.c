@@ -8,8 +8,6 @@ int manual()
     insert(tree, 10);
     insert(tree, 8);
     insert(tree, 15);
-    insert(tree, 15);
-    insert(tree, 16);
     insert(tree, 16);
     insert(tree, 14);
     insert(tree, 9);
@@ -24,15 +22,10 @@ int manual()
             head->right->left->data,
             head->right->right->data
     );
-    printf("                       %d\n", head->right->right->right->data);
-    printf("                          %d\n", head->right->right->right->right->data);
-    
+   
     struct node *got = search(tree, 15);
     printf("  %d   \n", got->data);
     printf("%d  %d \n", got->left->data, got->right->data);
-
-    printf("min: %d\n", minimum(tree)->data);
-    printf("max: %d\n", maximum(tree)->data);
 
     in_order(tree);
 
@@ -61,5 +54,6 @@ int test()
 int main() {
     double t = test_time(test);
     printf("time: %f\n", t);
+    // manual();
     return 0;
 }

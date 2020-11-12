@@ -32,6 +32,8 @@ void free_tree(struct tree *tree)
     free(tree);
 }
 
+void print_node(struct node *node) { printf("Node{%d}\n", node->data); }
+
 void insert(struct tree *tree, DTYPE data)
 {
     // If there is no head
@@ -48,7 +50,7 @@ void insert(struct tree *tree, DTYPE data)
         if (data < temp->data) {
             temp = temp->left;
         }
-        else if (data > temp->data) {
+        else if (data >= temp->data) {
             temp = temp->right;
         }
     }
@@ -61,6 +63,8 @@ void insert(struct tree *tree, DTYPE data)
     }
 
     ++tree->nodes;
+
+    // printf("inserted %d\n", data);
 }
 
 struct node *search(struct tree *tree, DTYPE target)
@@ -86,8 +90,7 @@ void in_order(struct tree *tree)
     struct node *temp = tree->head;
     struct stack *stack = init_stack(tree->nodes);
 
-    while (temp != NULL && is_empty(stack) == 0) {
-        printf("hello world\n");
+    while (temp != NULL || is_empty(stack) == 0) {
         while (temp != NULL) {
             push(stack, temp);
             temp = temp->left;
@@ -96,9 +99,10 @@ void in_order(struct tree *tree)
         temp = peek(stack);
         pop(stack);
 
-        printf("%d ", temp->data);
+        // printf("%d ", temp->data); // Silent
 
         temp = temp->right;
-
     }
+
+    free_stack(stack);
 }
