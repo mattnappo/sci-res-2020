@@ -27,12 +27,11 @@ void free_stack(struct stack *pt)
 }
 
 int is_empty(struct stack *pt) { return pt->top == -1; }
-int is_full(struct stack *pt) { return pt->top == pt->maxsize - 1; }
+int is_full (struct stack *pt) { return pt->top == pt->maxsize - 1; }
 
 void push(struct stack *pt, struct node *n)
 {
-	if (is_full(pt))
-	{
+	if (is_full(pt)) {
 		printf("stack overflow\n");
 		exit(1);
 	}
@@ -50,8 +49,7 @@ struct node *peek(struct stack *pt)
 
 struct node *pop(struct stack *pt)
 {
-	if (is_empty(pt))
-	{
+	if (is_empty(pt)) {
 		printf("stack underflow\n");
 		exit(1);
 	}

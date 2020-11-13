@@ -17,9 +17,6 @@ int main(void)
     print_node(pop(sp));
 
     free_stack(sp);
-    free(n1);
-    free(n2);
-    free(n3);
-    free(n4);
+
     return 0;
 }
