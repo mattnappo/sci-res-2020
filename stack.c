@@ -13,16 +13,14 @@ struct stack *init_stack(int capacity)
 	return pt;
 }
 
-int size(struct stack *pt)
-{
-	return pt->top + 1;
-}
+int size(struct stack *pt) { return pt->top + 1; }
 
 void free_stack(struct stack *pt)
 {
 	for (int i = 0; i < size(pt); i++) {
 		free(pt->items[i]);
 	}
+    free(pt->items);
 	free(pt);
 }
 

@@ -20,6 +20,7 @@ struct tree {
 
 struct tree *init_tree();
 struct node *init_node(DTYPE data);
+void free_tree_(struct node *node);
 void free_tree(struct tree *tree);
 void print_node(struct node *node);
 void print_tree(struct tree *tree);

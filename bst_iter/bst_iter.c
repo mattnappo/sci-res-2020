@@ -17,7 +17,7 @@ struct tree *init_tree()
     return tree;
 }
 
-static void free_tree_(struct node *node)
+void free_tree_(struct node *node)
 {
     if (node != NULL) {
         free_tree_(node->left);
