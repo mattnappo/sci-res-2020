@@ -45,6 +45,7 @@ int test()
     }
 
     in_order(tree);
+    // Try to use get on the tree to get something after running in_order
 
     free_tree(tree);
     return 0;
