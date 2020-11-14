@@ -1,3 +1,0 @@
-test if in_order for iter frees the tree
-1. dont call free_tree and see if there is a memleak
-2. try to search the tree after calling in_order
