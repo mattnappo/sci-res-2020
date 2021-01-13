@@ -1,8 +1,4 @@
-/// Write all of these data structures and write a testing
-/// framework to test all of them on all sets of inputs
-/// and measure the time it took to run them. Then graph and
-/// compare for common methods link store, get, search, etc.
-#include "list.h"
+#include "list_recur.h"
 
 struct list *new_list(char root_val[])
 {
@@ -42,53 +38,58 @@ void print_list(struct list *list)
     } 
 }
 
+static void insert_(struct node *node, char data[])
+{
+    if (node->next == NULL) { // base case
+        struct node *new = malloc(sizeof(struct node));
+        strncpy(new->value, data, SIZE);
+        new->next = NULL;
+        node->next = new;
+        return;
+    }
+    insert_(node->next, data);
+}
+
 void insert(struct list *list, char data[])
 {
-    // Move to the tail (current = tail)
-    struct node *current = list->head;
-    while (current->next != NULL) {
-        current = current->next;
-    }
-
-    struct node *new = malloc(sizeof(struct node));
-    strncpy(new->value, data, SIZE);
-    new->next = NULL;
-
-    current->next = new;
+    insert_(list->head, data);
     list->length++;
 }
 
-char *get(struct list *list, uint32_t index)
+static char *get_(struct node *node, int index)
+{
+    if (index == 0) {
+        return node->value;
+    }
+    return get_(node->next, index-1);
+}
+
+char *get(struct list *list, int index)
 {
     if (index >= list->length) {
         printf("index %d out of bounds\n", index);
         return NULL;
     }
-
-    struct node *current = list->head;
-    for (uint32_t i = 0; i < index; i++) {
-        current = current->next;
-    }
-
-    return current->value;
+    return get_(list->head, index);
 }
 
-uint32_t search(struct list *list, char target[])
+static struct node *search_(struct node *node, char target[])
 {
-    uint32_t index = 0;
-    struct node *current = list->head;
-    while (current != NULL) {
-        if (strncmp(target, current->value, SIZE) == 0) {
-            return index;
-        }
-        current = current->next;
-        index++;
+    if (node == NULL) { // not in list
+        printf("'%s' not in list\n", target);
+        return NULL;
     }
-
-    return -1;
+    if (strncmp(target, node->value, SIZE) == 0) // base case
+        return node;
+    return search_(node->next, target);
 }
 
-void delete_index(struct list *list, uint32_t index)
+struct node *search(struct list *list, char target[])
+{
+    return search_(list->head, target);
+}
+
+void delete_index(struct list *list, int index)
 {
     if (index >= list->length || index <= 0) {
         printf("index %d out of bounds\n", index);
@@ -97,7 +98,7 @@ void delete_index(struct list *list, uint32_t index)
 
     // The node right before the target node
     struct node *behind = list->head;
-    for (uint32_t i = 0; i < index - 1; i++) {
+    for (int i = 0; i < index - 1; i++) {
         behind = behind->next;
     }
    
@@ -107,8 +108,3 @@ void delete_index(struct list *list, uint32_t index)
     behind->next = to_next;
 }
 
-void delete_value(struct list *list, char target[])
-{
-    uint32_t index = search(list, target);
-    delete_index(list, index);
-}
