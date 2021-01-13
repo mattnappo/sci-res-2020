@@ -13,7 +13,7 @@ make ALG=$1
 echo "# # # # # # # # # # # # # # # # # # # #"
 echo "#           VALGRIND TESTS            #"
 echo "# # # # # # # # # # # # # # # # # # # #"
-./test.sh ./bin/$1.out
+./memtest.sh ./bin/$1.out
 
 echo "# # # # # # # # # # # # # # # # # # # #"
 echo "#           RUNNING TESTS             #"

@@ -52,7 +52,7 @@ int test()
 
 int main() {
     double t = test_time(test);
-    printf("time: %f\n", t);
+    printf("bst iter time: %f\n", t);
     // manual();
     return 0;
 }

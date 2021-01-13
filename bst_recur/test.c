@@ -59,6 +59,6 @@ int test()
 
 int main() {
     double t = test_time(test);
-    printf("time: %f\n", t);
+    printf("bst recur time: %f\n", t);
     return 0;
 }
