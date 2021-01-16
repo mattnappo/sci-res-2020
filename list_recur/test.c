@@ -55,16 +55,25 @@ int test()
 
     char *init = genrandstr();
     struct list *list = new_list(init);
+    free(init);
    
     // long int ct = 10000000; // 10 mil
     long int ct = 10;
-    for (int i = 0; i < ct; i++)
-        insert(list, genrandstr());
+    for (int i = 0; i < ct; i++) {
+        char *s = genrandstr();
+        insert(list, s);
+        //free(s);
+    }
 
-    for (int i = 0; i < ct; i++)
-        printf("{G} %s\n", get(list, i));
+    for (int i = 0; i < ct; i++) {
+        char *g = get(list, i);
+        printf("{G} %s\n", g);
+        //free(g);
+    }
 
     // print_list(list);
+
+    free_list(list);
     
     return 0;
 }

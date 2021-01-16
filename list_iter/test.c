@@ -56,8 +56,8 @@ int test()
     char *init = genrandstr();
     struct list *list = new_list(init);
    
-    long int ct = 10000000; // 10 mil
-    // long int ct = 10;
+    //long int ct = 10000000; // 10 mil
+    long int ct = 10;
     for (int i = 0; i < ct; i++)
         insert(list, genrandstr());
 

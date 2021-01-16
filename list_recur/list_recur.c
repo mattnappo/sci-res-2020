@@ -22,6 +22,7 @@ void free_list(struct list *list)
     while (list->head != NULL) {
         old_head = list->head;
         list->head = list->head->next;
+        //free(old_head->value);
         free(old_head);
     }
     free(list);
