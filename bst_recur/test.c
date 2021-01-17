@@ -44,8 +44,8 @@ int test()
 {
     srand(time(NULL));
     struct tree *tree = init_tree();
-    //long int ct = 10000000;
-    long int ct = 10;
+    long int ct = 10000000;
+    //long int ct = 10;
     for (int i = 0; i < ct; i++) {
         int r = rand();
         insert(tree, r);

@@ -53,18 +53,24 @@ int test()
 {
     srand(time(NULL));
 
-    char *init = genrandstr();
+    char init[16];
+    sprintf(init, "%d", rand());
     struct list *list = new_list(init);
    
-    //long int ct = 10000000; // 10 mil
-    long int ct = 10;
-    for (int i = 0; i < ct; i++)
-        insert(list, genrandstr());
+    long int ct = 10000000; // 10 mil
+    //long int ct = 10;
+    for (int i = 0; i < ct; i++) {
+        char s[16];
+        sprintf(s, "%d", rand());
+        insert(list, s);
+    }
 
     for (int i = 0; i < ct; i++)
         printf("{G} %s\n", get(list, i));
 
-    // print_list(list);
+    //print_list(list);
+
+    free_list(list);
     
     return 0;
 }
