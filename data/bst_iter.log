@@ -1,0 +1,26 @@
+# # # # # # # # # # # # # # # # # # # #
+#     TESTING bst_iter            #
+# # # # # # # # # # # # # # # # # # # #
+# # # # # # # # # # # # # # # # # # # #
+#             COMPILING               #
+# # # # # # # # # # # # # # # # # # # #
+mkdir -p bin
+gcc bst_iter/test.c bst_iter/bst_iter.c testlib.c stack.c -Wall -g -o bin/bst_iter.out
+# # # # # # # # # # # # # # # # # # # #
+#           VALGRIND TESTS            #
+# # # # # # # # # # # # # # # # # # # #
+bst iter time: 371566078.000000
+# # # # # # # # # # # # # # # # # # # #
+#           RUNNING TESTS             #
+# # # # # # # # # # # # # # # # # # # #
+bst iter time: 15141704.000000
+bst iter time: 15376511.000000
+bst iter time: 15056359.000000
+bst iter time: 15126639.000000
+bst iter time: 15087322.000000
+bst iter time: 15226108.000000
+bst iter time: 15142676.000000
+bst iter time: 15154669.000000
+bst iter time: 15152477.000000
+bst iter time: 15099584.000000
+bst iter time: 15153551.000000

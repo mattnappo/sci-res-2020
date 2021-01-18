@@ -1,0 +1,26 @@
+# # # # # # # # # # # # # # # # # # # #
+#     TESTING bst_recur            #
+# # # # # # # # # # # # # # # # # # # #
+# # # # # # # # # # # # # # # # # # # #
+#             COMPILING               #
+# # # # # # # # # # # # # # # # # # # #
+mkdir -p bin
+gcc bst_recur/test.c bst_recur/bst_recur.c testlib.c stack.c -Wall -g -o bin/bst_recur.out
+# # # # # # # # # # # # # # # # # # # #
+#           VALGRIND TESTS            #
+# # # # # # # # # # # # # # # # # # # #
+bst recur time: 406597395.000000
+# # # # # # # # # # # # # # # # # # # #
+#           RUNNING TESTS             #
+# # # # # # # # # # # # # # # # # # # #
+bst recur time: 15617866.000000
+bst recur time: 15574718.000000
+bst recur time: 15649926.000000
+bst recur time: 15782981.000000
+bst recur time: 15593544.000000
+bst recur time: 15613150.000000
+bst recur time: 15726728.000000
+bst recur time: 15611460.000000
+bst recur time: 15324106.000000
+bst recur time: 14466224.000000
+bst recur time: 14448208.000000
