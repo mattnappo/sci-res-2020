@@ -1,0 +1,25 @@
+# # # # # # # # # # # # # # # # # # # #
+#     TESTING list_recur            #
+# # # # # # # # # # # # # # # # # # # #
+# # # # # # # # # # # # # # # # # # # #
+#             COMPILING               #
+# # # # # # # # # # # # # # # # # # # #
+mkdir -p bin
+gcc list_recur/test.c list_recur/list_recur.c testlib.c stack.c -Wall -g -o bin/list_recur.out
+# # # # # # # # # # # # # # # # # # # #
+#           VALGRIND TESTS            #
+# # # # # # # # # # # # # # # # # # # #
+# # # # # # # # # # # # # # # # # # # #
+#           RUNNING TESTS             #
+# # # # # # # # # # # # # # # # # # # #
+list recur time: 28360837.000000
+list recur time: 28227551.000000
+list recur time: 28024194.000000
+list recur time: 28341969.000000
+list recur time: 27373035.000000
+list recur time: 26052153.000000
+list recur time: 27160118.000000
+list recur time: 28654770.000000
+list recur time: 25629424.000000
+list recur time: 25884383.000000
+list recur time: 25516459.000000

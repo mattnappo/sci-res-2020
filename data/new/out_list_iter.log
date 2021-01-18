@@ -1,0 +1,45 @@
+λ  sci-res-2020 git:(master) ✗ ./benchmark.sh list_iter > data/new/list_iter.log
+
+real	0m12.473s
+user	0m12.460s
+sys	0m0.003s
+
+real	0m13.032s
+user	0m13.019s
+sys	0m0.000s
+
+real	0m12.908s
+user	0m12.894s
+sys	0m0.000s
+
+real	0m12.924s
+user	0m12.913s
+sys	0m0.000s
+
+real	0m12.956s
+user	0m12.939s
+sys	0m0.003s
+
+real	0m12.960s
+user	0m12.947s
+sys	0m0.003s
+
+real	0m13.085s
+user	0m13.062s
+sys	0m0.007s
+
+real	0m12.993s
+user	0m12.977s
+sys	0m0.007s
+
+real	0m13.067s
+user	0m13.045s
+sys	0m0.007s
+
+real	0m12.730s
+user	0m12.712s
+sys	0m0.007s
+
+real	0m13.045s
+user	0m12.990s
+sys	0m0.007s

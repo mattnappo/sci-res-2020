@@ -1,0 +1,25 @@
+# # # # # # # # # # # # # # # # # # # #
+#     TESTING list_iter            #
+# # # # # # # # # # # # # # # # # # # #
+# # # # # # # # # # # # # # # # # # # #
+#             COMPILING               #
+# # # # # # # # # # # # # # # # # # # #
+mkdir -p bin
+gcc list_iter/test.c list_iter/list_iter.c testlib.c stack.c -Wall -g -o bin/list_iter.out
+# # # # # # # # # # # # # # # # # # # #
+#           VALGRIND TESTS            #
+# # # # # # # # # # # # # # # # # # # #
+# # # # # # # # # # # # # # # # # # # #
+#           RUNNING TESTS             #
+# # # # # # # # # # # # # # # # # # # #
+list iter time: 12462637.000000
+list iter time: 13017743.000000
+list iter time: 12893227.000000
+list iter time: 12912382.000000
+list iter time: 12941216.000000
+list iter time: 12949499.000000
+list iter time: 13068013.000000
+list iter time: 12982627.000000
+list iter time: 13050278.000000
+list iter time: 12717368.000000
+list iter time: 12995455.000000

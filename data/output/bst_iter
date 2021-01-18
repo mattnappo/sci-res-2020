@@ -1,0 +1,140 @@
+λ  sci-res-2020 git:(master) ✗ ./benchmark.sh bst_iter > ./data/bst_iter.log
+==237465== Memcheck, a memory error detector
+==237465== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==237465== Using Valgrind-3.16.1-36d6727e1d-20200622X and LibVEX; rerun with -h for copyright info
+==237465== Command: ././bin/bst_iter.out
+==237465==
+--237465-- Valgrind options:
+--237465--    --leak-check=full
+--237465--    --show-leak-kinds=all
+--237465--    --track-origins=yes
+--237465--    --verbose
+--237465-- Contents of /proc/version:
+--237465--   Linux version 5.10.5-arch1-1 (linux@archlinux) (gcc (GCC) 10.2.0, GNU ld (GNU Binutils) 2.35.1) #1 SMP PREEMPT Thu, 07 Jan 2021 09:50:43 +0000
+--237465--
+--237465-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-ssse3-avx-avx2-bmi-f16c-rdrand
+--237465-- Page sizes: currently 4096, max supported 4096
+--237465-- Valgrind library directory: /usr/lib/valgrind
+--237465-- Reading syms from /home/matt/git/sci-res-2020/bin/bst_iter.out
+--237465-- Reading syms from /usr/lib/ld-2.32.so
+--237465-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux
+--237465--    object doesn't have a dynamic symbol table
+--237465-- Scheduler: using generic scheduler lock implementation.
+--237465-- Reading suppressions file: /usr/lib/valgrind/default.supp
+==237465== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-237465-by-matt-on-???
+==237465== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-237465-by-matt-on-???
+==237465== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-237465-by-matt-on-???
+==237465==
+==237465== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==237465== don't want to do, unless you know exactly what you're doing,
+==237465== or are doing some strange experiment):
+==237465==   /usr/lib/valgrind/../../bin/vgdb --pid=237465 ...command...
+==237465==
+==237465== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==237465==   /path/to/gdb ././bin/bst_iter.out
+==237465== and then give GDB the following command
+==237465==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=237465
+==237465== --pid is optional if only one valgrind process is running
+==237465==
+--237465-- REDIR: 0x4021ee0 (ld-linux-x86-64.so.2:strlen) redirected to 0x580b9662 (vgPlain_amd64_linux_REDIR_FOR_strlen)
+--237465-- REDIR: 0x4021cb0 (ld-linux-x86-64.so.2:index) redirected to 0x580b967c (vgPlain_amd64_linux_REDIR_FOR_index)
+--237465-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so
+--237465-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so
+==237465== WARNING: new redirection conflicts with existing -- ignoring it
+--237465--     old: 0x04021ee0 (strlen              ) R-> (0000.0) 0x580b9662 vgPlain_amd64_linux_REDIR_FOR_strlen
+--237465--     new: 0x04021ee0 (strlen              ) R-> (2007.0) 0x0483dd90 strlen
+--237465-- REDIR: 0x401e6c0 (ld-linux-x86-64.so.2:strcmp) redirected to 0x483ec60 (strcmp)
+--237465-- REDIR: 0x4022440 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4842450 (mempcpy)
+--237465-- Reading syms from /usr/lib/libc-2.32.so
+--237465-- REDIR: 0x48f88c0 (libc.so.6:memmove) redirected to 0x48301c0 (_vgnU_ifunc_wrapper)
+--237465-- REDIR: 0x48f7db0 (libc.so.6:strncpy) redirected to 0x48301c0 (_vgnU_ifunc_wrapper)
+--237465-- REDIR: 0x48f8c00 (libc.so.6:strcasecmp) redirected to 0x48301c0 (_vgnU_ifunc_wrapper)
+--237465-- REDIR: 0x48f7850 (libc.so.6:strcat) redirected to 0x48301c0 (_vgnU_ifunc_wrapper)
+--237465-- REDIR: 0x48f7e10 (libc.so.6:rindex) redirected to 0x48301c0 (_vgnU_ifunc_wrapper)
+--237465-- REDIR: 0x48f9fb0 (libc.so.6:rawmemchr) redirected to 0x48301c0 (_vgnU_ifunc_wrapper)
+--237465-- REDIR: 0x4912500 (libc.so.6:wmemchr) redirected to 0x48301c0 (_vgnU_ifunc_wrapper)
+--237465-- REDIR: 0x4912040 (libc.so.6:wcscmp) redirected to 0x48301c0 (_vgnU_ifunc_wrapper)
+--237465-- REDIR: 0x48f8a20 (libc.so.6:mempcpy) redirected to 0x48301c0 (_vgnU_ifunc_wrapper)
+--237465-- REDIR: 0x48f8850 (libc.so.6:bcmp) redirected to 0x48301c0 (_vgnU_ifunc_wrapper)
+--237465-- REDIR: 0x48f7d40 (libc.so.6:strncmp) redirected to 0x48301c0 (_vgnU_ifunc_wrapper)
+--237465-- REDIR: 0x48f7900 (libc.so.6:strcmp) redirected to 0x48301c0 (_vgnU_ifunc_wrapper)
+--237465-- REDIR: 0x48f8990 (libc.so.6:memset) redirected to 0x48301c0 (_vgnU_ifunc_wrapper)
+--237465-- REDIR: 0x4912000 (libc.so.6:wcschr) redirected to 0x48301c0 (_vgnU_ifunc_wrapper)
+--237465-- REDIR: 0x48f7ca0 (libc.so.6:strnlen) redirected to 0x48301c0 (_vgnU_ifunc_wrapper)
+--237465-- REDIR: 0x48f79e0 (libc.so.6:strcspn) redirected to 0x48301c0 (_vgnU_ifunc_wrapper)
+--237465-- REDIR: 0x48f8c50 (libc.so.6:strncasecmp) redirected to 0x48301c0 (_vgnU_ifunc_wrapper)
+--237465-- REDIR: 0x48f7980 (libc.so.6:strcpy) redirected to 0x48301c0 (_vgnU_ifunc_wrapper)
+--237465-- REDIR: 0x48f8da0 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x48301c0 (_vgnU_ifunc_wrapper)
+--237465-- REDIR: 0x4913750 (libc.so.6:wcsnlen) redirected to 0x48301c0 (_vgnU_ifunc_wrapper)
+--237465-- REDIR: 0x4912080 (libc.so.6:wcscpy) redirected to 0x48301c0 (_vgnU_ifunc_wrapper)
+--237465-- REDIR: 0x48f7e50 (libc.so.6:strpbrk) redirected to 0x48301c0 (_vgnU_ifunc_wrapper)
+--237465-- REDIR: 0x48f78b0 (libc.so.6:index) redirected to 0x48301c0 (_vgnU_ifunc_wrapper)
+--237465-- REDIR: 0x48f7c60 (libc.so.6:strlen) redirected to 0x48301c0 (_vgnU_ifunc_wrapper)
+--237465-- REDIR: 0x48fe3a0 (libc.so.6:memrchr) redirected to 0x48301c0 (_vgnU_ifunc_wrapper)
+--237465-- REDIR: 0x48f8ca0 (libc.so.6:strcasecmp_l) redirected to 0x48301c0 (_vgnU_ifunc_wrapper)
+--237465-- REDIR: 0x48f8810 (libc.so.6:memchr) redirected to 0x48301c0 (_vgnU_ifunc_wrapper)
+--237465-- REDIR: 0x4912150 (libc.so.6:wcslen) redirected to 0x48301c0 (_vgnU_ifunc_wrapper)
+--237465-- REDIR: 0x48f7f80 (libc.so.6:strspn) redirected to 0x48301c0 (_vgnU_ifunc_wrapper)
+--237465-- REDIR: 0x48f8ba0 (libc.so.6:stpncpy) redirected to 0x48301c0 (_vgnU_ifunc_wrapper)
+--237465-- REDIR: 0x48f8b40 (libc.so.6:stpcpy) redirected to 0x48301c0 (_vgnU_ifunc_wrapper)
+--237465-- REDIR: 0x48f9ff0 (libc.so.6:strchrnul) redirected to 0x48301c0 (_vgnU_ifunc_wrapper)
+--237465-- REDIR: 0x48f8cf0 (libc.so.6:strncasecmp_l) redirected to 0x48301c0 (_vgnU_ifunc_wrapper)
+--237465-- REDIR: 0x49ca8a0 (libc.so.6:__strrchr_avx2) redirected to 0x483d7d0 (rindex)
+--237465-- REDIR: 0x48f3c90 (libc.so.6:malloc) redirected to 0x483a710 (malloc)
+--237465-- REDIR: 0x48f42f0 (libc.so.6:free) redirected to 0x483b940 (free)
+--237465-- REDIR: 0x49ca6b0 (libc.so.6:__strchrnul_avx2) redirected to 0x4841f40 (strchrnul)
+--237465-- REDIR: 0x49cda80 (libc.so.6:__memcpy_avx_unaligned_erms) redirected to 0x48414b0 (memmove)
+--237465-- REDIR: 0x49caa70 (libc.so.6:__strlen_avx2) redirected to 0x483dc70 (strlen)
+--237465-- REDIR: 0x49cda60 (libc.so.6:__mempcpy_avx_unaligned_erms) redirected to 0x4842050 (mempcpy)
+==237465==
+==237465== HEAP SUMMARY:
+==237465==     in use at exit: 0 bytes in 0 blocks
+==237465==   total heap usage: 10,000,004 allocs, 10,000,004 frees, 320,004,128 bytes allocated
+==237465==
+==237465== All heap blocks were freed -- no leaks are possible
+==237465==
+==237465== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+real	0m15.836s
+user	0m15.664s
+sys	0m0.133s
+
+real	0m15.955s
+user	0m15.776s
+sys	0m0.160s
+
+real	0m15.888s
+user	0m15.691s
+sys	0m0.176s
+
+real	0m15.481s
+user	0m15.289s
+sys	0m0.170s
+
+real	0m15.562s
+user	0m15.421s
+sys	0m0.120s
+
+real	0m15.495s
+user	0m15.355s
+sys	0m0.120s
+
+real	0m15.470s
+user	0m15.296s
+sys	0m0.153s
+
+real	0m15.688s
+user	0m15.539s
+sys	0m0.133s
+
+real	0m15.808s
+user	0m15.683s
+sys	0m0.107s
+
+real	0m15.568s
+user	0m15.425s
+sys	0m0.127s
+
+real	0m15.505s
+user	0m15.374s
+sys	0m0.110s

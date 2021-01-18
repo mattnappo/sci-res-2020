@@ -2,39 +2,22 @@
 
 #include "../testlib.h"
 
-/*
+
 int manual()
 {
-    struct list *list = new_list("zero");
+    struct list *list = new_list(0);
 
-    insert(list, "one");
-    insert(list, "two");
-    insert(list, "three");
-    insert(list, "four");
-    insert(list, "five");
-    print_list(list);
-
-    // Test search
-    //assert(search(list, "two") == 2);
-    //assert(search(list, "five") == 5);
-
-    // Test getj
-    assert(strcmp(get(list, 3), "three") == 0);
-    assert(strcmp(get(list, 5), "five") == 0);
+    for (int i = 0; i < 1000; i++) {
+        for (int k = 0; k < 100; k++) {
+            insert(list, rand());
+        }
+        // printf("i: %d\n", i*100);
+    }
     
-    // Test delete
-    delete_index(list, 5);
-    delete_index(list, 3);
-    assert(strcmp(get(list, 0), "zero") == 0);
-    assert(strcmp(get(list, 1), "one")  == 0);
-    assert(strcmp(get(list, 2), "two")  == 0);
-    assert(strcmp(get(list, 3), "four") == 0);
-
     free_list(list);
 
     return 0;
 }
-*/
 
 int test()
 {
@@ -42,8 +25,8 @@ int test()
 
     struct list *list = new_list(rand());
    
-    //long int ct = 10000000; // 10 mil
-    long int ct = 10000;
+    long int ct = 10000000; // 10 mil
+    //long int ct = 10000;
     for (int i = 0; i < ct; i++)
         insert(list, rand());
 
@@ -61,8 +44,9 @@ int test()
 
 int main()
 {
-    double t = test_time(test);
+    double t = test_time(manual);
     printf("list iter time: %f\n", t);
+    //manual();
     return 0;
 }
 

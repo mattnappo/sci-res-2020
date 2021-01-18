@@ -1,0 +1,45 @@
+λ  sci-res-2020 git:(master) ✗ ./benchmark.sh list_recur > data/new/list_recur.log
+
+real	0m28.485s
+user	0m28.329s
+sys	0m0.033s
+
+real	0m28.263s
+user	0m28.225s
+sys	0m0.003s
+
+real	0m28.061s
+user	0m28.012s
+sys	0m0.013s
+
+real	0m28.396s
+user	0m28.320s
+sys	0m0.023s
+
+real	0m27.402s
+user	0m27.368s
+sys	0m0.007s
+
+real	0m26.080s
+user	0m26.050s
+sys	0m0.003s
+
+real	0m27.198s
+user	0m27.145s
+sys	0m0.017s
+
+real	0m28.706s
+user	0m28.646s
+sys	0m0.010s
+
+real	0m25.657s
+user	0m25.631s
+sys	0m0.000s
+
+real	0m25.923s
+user	0m25.879s
+sys	0m0.007s
+
+real	0m25.546s
+user	0m25.501s
+sys	0m0.017s

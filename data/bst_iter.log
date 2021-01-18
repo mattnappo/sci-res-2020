@@ -9,18 +9,18 @@ gcc bst_iter/test.c bst_iter/bst_iter.c testlib.c stack.c -Wall -g -o bin/bst_it
 # # # # # # # # # # # # # # # # # # # #
 #           VALGRIND TESTS            #
 # # # # # # # # # # # # # # # # # # # #
-bst iter time: 371566078.000000
+bst iter time: 347525051.000000
 # # # # # # # # # # # # # # # # # # # #
 #           RUNNING TESTS             #
 # # # # # # # # # # # # # # # # # # # #
-bst iter time: 15141704.000000
-bst iter time: 15376511.000000
-bst iter time: 15056359.000000
-bst iter time: 15126639.000000
-bst iter time: 15087322.000000
-bst iter time: 15226108.000000
-bst iter time: 15142676.000000
-bst iter time: 15154669.000000
-bst iter time: 15152477.000000
-bst iter time: 15099584.000000
-bst iter time: 15153551.000000
+bst iter time: 14018683.000000
+bst iter time: 14095134.000000
+bst iter time: 14119833.000000
+bst iter time: 13702337.000000
+bst iter time: 13776508.000000
+bst iter time: 13732182.000000
+bst iter time: 13693178.000000
+bst iter time: 13900249.000000
+bst iter time: 14030040.000000
+bst iter time: 13799594.000000
+bst iter time: 13729348.000000
