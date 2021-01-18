@@ -4,11 +4,11 @@
 /// compare for common methods link store, get, search, etc.
 #include "list_iter.h"
 
-struct list *new_list(char root_val[])
+struct list *new_list(long root_val)
 {
     // Make the head
     struct node *head = malloc(sizeof(struct node));
-    strncpy(head->value, root_val, SIZE);
+    head->value = root_val;
     head->next = NULL;
 
     // Make the list
@@ -36,13 +36,13 @@ void print_list(struct list *list)
     struct node *current = list->head;
     int counter = 0;
     while (current != NULL) {
-        printf("[%d] %s\n", counter, current->value);
+        printf("[%d] %ld\n", counter, current->value);
         current = current->next;
         counter++;
     } 
 }
 
-void insert(struct list *list, char data[])
+void insert(struct list *list, long data)
 {
     // Move to the tail (current = tail)
     struct node *current = list->head;
@@ -51,34 +51,34 @@ void insert(struct list *list, char data[])
     }
 
     struct node *new = malloc(sizeof(struct node));
-    strncpy(new->value, data, SIZE);
+    new->value = data;
     new->next = NULL;
 
     current->next = new;
     list->length++;
 }
 
-char *get(struct list *list, uint32_t index)
+long get(struct list *list, int index)
 {
     if (index >= list->length) {
         printf("index %d out of bounds\n", index);
-        return NULL;
+        exit(1);
     }
 
     struct node *current = list->head;
-    for (uint32_t i = 0; i < index; i++) {
+    for (int i = 0; i < index; i++) {
         current = current->next;
     }
 
     return current->value;
 }
 
-uint32_t search(struct list *list, char target[])
+int search(struct list *list, long target)
 {
-    uint32_t index = 0;
+    int index = 0;
     struct node *current = list->head;
     while (current != NULL) {
-        if (strncmp(target, current->value, SIZE) == 0) {
+        if (target == current->value) {
             return index;
         }
         current = current->next;
@@ -88,27 +88,3 @@ uint32_t search(struct list *list, char target[])
     return -1;
 }
 
-void delete_index(struct list *list, uint32_t index)
-{
-    if (index >= list->length || index <= 0) {
-        printf("index %d out of bounds\n", index);
-        return;
-    }
-
-    // The node right before the target node
-    struct node *behind = list->head;
-    for (uint32_t i = 0; i < index - 1; i++) {
-        behind = behind->next;
-    }
-   
-    struct node *to_next = behind->next->next;
-    free(behind->next);
-    printf("to_next: %p\n", to_next);
-    behind->next = to_next;
-}
-
-void delete_value(struct list *list, char target[])
-{
-    uint32_t index = search(list, target);
-    delete_index(list, index);
-}

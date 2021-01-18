@@ -1,10 +1,10 @@
 #include "list_recur.h"
 
-struct list *new_list(char root_val[])
+struct list *new_list(long root_val)
 {
     // Make the head
     struct node *head = malloc(sizeof(struct node));
-    strncpy(head->value, root_val, SIZE);
+    head->value = root_val;
     head->next = NULL;
 
     // Make the list
@@ -33,17 +33,17 @@ void print_list(struct list *list)
     struct node *current = list->head;
     int counter = 0;
     while (current != NULL) {
-        printf("[%d] %s\n", counter, current->value);
+        printf("[%d] %ld\n", counter, current->value);
         current = current->next;
         counter++;
     } 
 }
 
-static void insert_(struct node *node, char data[])
+static void insert_(struct node *node, long data)
 {
     if (node->next == NULL) { // base case
         struct node *new = malloc(sizeof(struct node));
-        strncpy(new->value, data, SIZE);
+        new->value = data;
         new->next = NULL;
         node->next = new;
         return;
@@ -51,13 +51,13 @@ static void insert_(struct node *node, char data[])
     insert_(node->next, data);
 }
 
-void insert(struct list *list, char data[])
+void insert(struct list *list, long data)
 {
     insert_(list->head, data);
     list->length++;
 }
 
-static char *get_(struct node *node, int index)
+static long get_(struct node *node, int index)
 {
     if (index == 0) {
         return node->value;
@@ -65,47 +65,28 @@ static char *get_(struct node *node, int index)
     return get_(node->next, index-1);
 }
 
-char *get(struct list *list, int index)
+long get(struct list *list, int index)
 {
     if (index >= list->length) {
         printf("index %d out of bounds\n", index);
-        return NULL;
+        exit(1);
     }
     return get_(list->head, index);
 }
 
-static struct node *search_(struct node *node, char target[])
+static struct node *search_(struct node *node, long target)
 {
     if (node == NULL) { // not in list
-        printf("'%s' not in list\n", target);
+        printf("'%ld' not in list\n", target);
         return NULL;
     }
-    if (strncmp(target, node->value, SIZE) == 0) // base case
+    if (target == node->value) // base case
         return node;
     return search_(node->next, target);
 }
 
-struct node *search(struct list *list, char target[])
+struct node *search(struct list *list, long target)
 {
     return search_(list->head, target);
-}
-
-void delete_index(struct list *list, int index)
-{
-    if (index >= list->length || index <= 0) {
-        printf("index %d out of bounds\n", index);
-        return;
-    }
-
-    // The node right before the target node
-    struct node *behind = list->head;
-    for (int i = 0; i < index - 1; i++) {
-        behind = behind->next;
-    }
-   
-    struct node *to_next = behind->next->next;
-    free(behind->next);
-    printf("to_next: %p\n", to_next);
-    behind->next = to_next;
 }
 

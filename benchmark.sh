@@ -19,5 +19,5 @@ echo "#           RUNNING TESTS             #"
 echo "# # # # # # # # # # # # # # # # # # # #"
 for i in {0..10}
 do
-    time ./bin/$1.out
+    echo $(time ./bin/$1.out)
 done
