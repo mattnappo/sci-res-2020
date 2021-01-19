@@ -1,7 +1,3 @@
-/// Write all of these data structures and write a testing
-/// framework to test all of them on all sets of inputs
-/// and measure the time it took to run them. Then graph and
-/// compare for common methods link store, get, search, etc.
 #include "list_iter.h"
 
 struct list *new_list(long root_val)
